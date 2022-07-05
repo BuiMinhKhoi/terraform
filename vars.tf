@@ -30,6 +30,9 @@ variable "ec2-configuration-optional" {
   type = any
 }
 
+variable "ec2-ssh-key" {
+  type = string
+}
 
 
 

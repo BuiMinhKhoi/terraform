@@ -34,7 +34,8 @@ module "ec2" {
   source = "./modules/ec2"
   ec2-configuration-required = {
     vpc_security_group_ids = ["${module.vpc.security-group-id}"]
-    vpc_subnet_id         = "${module.vpc.private-subnet-id}"
+    vpc_subnet_id          = "${module.vpc.private-subnet-id}"
+    key-name               = var.ec2-ssh-key
   }
   ec2-configuration-optional = var.ec2-configuration-optional
 }

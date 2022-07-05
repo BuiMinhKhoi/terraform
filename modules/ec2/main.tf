@@ -6,6 +6,7 @@ variable "ec2-configuration-required" {
   type = object({
     vpc_security_group_ids = list(string)
     vpc_subnet_id         = string
+    key-name = string
   })
 }
 
@@ -31,6 +32,7 @@ resource "aws_instance" "backend-server" {
   ami                         = var.ec2-configuration-optional.aws-ec2-ami
   instance_type               = var.ec2-configuration-optional.awc-ec2-machine-type
   associate_public_ip_address = var.ec2-configuration-optional.public-ip
+  key_name = var.ec2-configuration-required.key-name
   tags = {
     Name = var.ec2-configuration-optional.name
   }
